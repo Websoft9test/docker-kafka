@@ -9,7 +9,7 @@ services:
     container_name: $APP_NAME
     restart: always
     ports:
-      - "$APP_PORT:9092"
+      - "$DB_KAFKA_PORT:9092"
     volumes:
       - "kafka_data:/bitnami"
     environment:
@@ -34,7 +34,7 @@ services:
     container_name: $APP_NAME-cmak
     restart: always
     ports:
-      - "$KAFKA_CMAK_PORT:9000"
+      - "$APP_PORT:9000"
     environment:
       ZK_HOSTS: "zookeeper:2181"
       APPLICATION_SECRET: "random-secret"
